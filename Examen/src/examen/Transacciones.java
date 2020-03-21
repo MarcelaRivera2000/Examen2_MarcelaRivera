@@ -6,21 +6,32 @@
 package examen;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
  * @author Mvrivera
  */
 public class Transacciones implements Serializable{
-    private String Descripcion,fecha,hora,num_cuenta,id;
+    private String Descripcion,num_cuenta,id;
+    private Date date;
 
-    public Transacciones(String Descripcion, String fecha, String hora, String num_cuenta, String id) {
+    public Transacciones(String Descripcion, String num_cuenta, String id, Date date) {
         this.Descripcion = Descripcion;
-        this.fecha = fecha;
-        this.hora = hora;
         this.num_cuenta = num_cuenta;
         this.id = id;
+        this.date = date;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    
+    
     
     public String getDescripcion() {
         return Descripcion;
@@ -30,21 +41,6 @@ public class Transacciones implements Serializable{
         this.Descripcion = Descripcion;
     }
 
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
 
     public String getNum_cuenta() {
         return num_cuenta;
@@ -64,8 +60,10 @@ public class Transacciones implements Serializable{
 
     @Override
     public String toString() {
-        return "Transacciones{" + "Descripcion=" + Descripcion + ", fecha=" + fecha + ", hora=" + hora + ", num_cuenta=" + num_cuenta + ", id=" + id + '}';
+        return "Transacciones{" + "Descripcion=" + Descripcion + ", num_cuenta=" + num_cuenta + ", id=" + id + ", date=" + date + '}';
     }
+
+  
     
     
     

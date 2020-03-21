@@ -6,7 +6,10 @@
 package examen;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -110,7 +113,14 @@ public class Login extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
+        atmBox4 = new javax.swing.JComboBox<>();
+        jLabel42 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel7 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel43 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -459,7 +469,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel33)
                         .addGap(29, 29, 29)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel31)
                         .addGap(36, 36, 36)
@@ -513,7 +523,7 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addContainerGap(320, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -588,7 +598,7 @@ public class Login extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(96, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 899, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel37)
@@ -628,6 +638,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel40.setText("Saldo:");
 
+        cu_id.setEditable(false);
         cu_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cu_idActionPerformed(evt);
@@ -699,28 +710,73 @@ public class Login extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Nueva Cuenta", jPanel5);
 
+        atmBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " --------------------------------" }));
+        atmBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                atmBox4ItemStateChanged(evt);
+            }
+        });
+
+        jLabel42.setText("Cuenta:");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1001, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel42)
+                        .addGap(18, 18, 18)
+                        .addComponent(atmBox4, 0, 442, Short.MAX_VALUE)))
+                .addGap(430, 430, 430))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(atmBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel42))
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(248, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Revisar Estado Cuenta", jPanel6);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane4.setViewportView(jTextArea2);
+
+        jLabel43.setText("TRANSACCIONES");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1001, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel43)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 942, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(jLabel43)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
 
         jTabbedPane2.addTab("Transacciones", jPanel7);
@@ -993,34 +1049,36 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(L_usuario)
-                            .addComponent(L_Pass)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(L_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                                    .addComponent(L_Pass)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jButton2)))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jButton2)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(L_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(L_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(28, 28, 28)
-                .addComponent(jButton1)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -1039,6 +1097,14 @@ int y = 0;
                     PrincipalCliente.setVisible(true);
                     this.setVisible(false);
                     llenarcombox();
+                    String codigo = "CUE" + (1 + r.nextInt(132000)) + "SDD";
+                    cu_id.setText(codigo);
+                    String aux3 = "";
+                    for (Transacciones u : ((Clientes) usuario.get(posi)).getTransacciones()) {
+                        aux3 += "ID: " + u.getId() + "\n" + "Descrpcion: " + u.getDescripcion() + "\nFecha:" + u.getDate() + "\n---------------------------------------------------\n";
+                    }
+                    jTextArea2.setText(aux3);
+
                 }
                 if (i instanceof Usuario_mantenimiento) {
                     PrincipalMantenimiento.pack();
@@ -1049,12 +1115,24 @@ int y = 0;
                     String codigo = "AMT" + (21321 + r.nextInt(10000)) + "DAsdaSF";
                     atm_id.setText(codigo);
                 }
+                Date d = new Date();
+                logs.add(new Logs(i.getUsuario(), ": Ingreso al programa: ", d));
+                try {
+                    ar.Escribir();
+                } catch (Exception ex) {
+                }
             }
             cont++;
         }
         if (aux1) {
             JOptionPane.showMessageDialog(this, "Ese usuario no existe");
             y++;
+            Date d = new Date();
+            logs.add(new Logs("Desconocido", ": Fallo al intento entrar al programa : ", d));
+            try {
+                ar.Escribir();
+            } catch (Exception ex) {
+            }
             if (y >= 5) {
                 JOptionPane.showMessageDialog(this, "Deje de intentarlo :u");
                 y = 0;
@@ -1074,8 +1152,13 @@ int y = 0;
         b.escribirArchivo();
         JOptionPane.showMessageDialog(this, "Se registro exitosamente");
         String codigo = "CC" + (1 + r.nextInt(200)) + "DASasd";
-
         cc_id.setText(codigo);
+        Date d = new Date();
+        logs.add(new Logs(c.getUsuario(), ": Se registro como usuario cliente : ", d));
+        try {
+            ar.Escribir();
+        } catch (Exception ex) {
+        }
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1090,6 +1173,12 @@ int y = 0;
         JOptionPane.showMessageDialog(this, "Se registro exitosamente");
         String codigo2 = "CM" + (200 + r.nextInt(400)) + "DASasd";
         cm_id.setText(codigo2);
+        Date d = new Date();
+        logs.add(new Logs(c.getUsuario(), ": Se registro como usuario de mantenimiento: ", d));
+        try {
+            ar.Escribir();
+        } catch (Exception ex) {
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
     Random r = new Random();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1104,78 +1193,8 @@ int y = 0;
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        int u = tablaMantenimiento.getSelectedRow();
-        if (u >= 0) {
-            atm_usu = u;
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        int aux = 0, aux2 = 0;
-        for (Usuario i : usuario) {
-            if (i instanceof Usuario_mantenimiento) {
-                if (atm_usu == aux2) {
-                    break;
-                }
-                aux2++;
-            }
-            aux++;
-        }
-        ((Usuario_mantenimiento) usuario.get(aux)).getAtms().add(new ATM(atm_ubicacion.getText(), atm_id.getText(), atm_tiempo.getText(), 2020, Double.parseDouble(atm_Saldo.getText())));
-        b.escribirArchivo();
-        JOptionPane.showMessageDialog(this, "Se creo el ATM correctamente");
-        String codigo = "AMT" + (21321 + r.nextInt(10000)) + "DAsdaSF";
-        atm_id.setText(codigo);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        DefaultComboBoxModel atms = (DefaultComboBoxModel) atmBox.getModel();
-        int cont = 0;
-        System.out.println("llega");
-        for (ATM i : ((Usuario_mantenimiento) usuario.get(posi)).getAtms()) {
-            if (((String) atms.getSelectedItem()).equals(i.getId())) {
-                System.out.println("llega");
-                break;
-            }
-            cont++;
-        }
-        System.out.println(cant_100.getValue() +"dsa");
-        int cant100 = 100 * Integer.parseInt( cant_100.getValue().toString());
-        int cant500 = 500 * Integer.parseInt( cant_500.getValue().toString());
-        int suma = cant100 + cant500;
-        System.out.println(cant100 + " " + cant500);
-        ((Usuario_mantenimiento) usuario.get(posi)).getAtms().get(cont).setDinero(suma);
-        String usu = JOptionPane.showInputDialog("Ingrese su Usuario:");
-        String pass = JOptionPane.showInputDialog("Ingrese su Password:");
-        for (Usuario i : usuario) {
-            if (i.getUsuario().equals(usu) && i.getContra().equals(pass)) {
-                this.pack();
-                this.setLocationRelativeTo(this);
-                this.setVisible(true);
-                PrincipalMantenimiento.setVisible(false);
-            }
-        }
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void atmBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_atmBoxItemStateChanged
-        boolean aux1 = true;
-        if (evt.getStateChange() == 2) {
-            DefaultComboBoxModel atms = (DefaultComboBoxModel) atmBox.getModel();
-            for (ATM i : ((Usuario_mantenimiento) usuario.get(posi)).getAtms()) {
-                if (((String) atms.getSelectedItem()).equals(i.getId())) {
-                    cant_100.setEnabled(true);
-                    cant_500.setEnabled(true);
-                    aux1 = false;
-                }
-            }
-            if (aux1) {
-                JOptionPane.showMessageDialog(this, "Usted no esta asignado a ese ATM");
-            }
-        }
-    }//GEN-LAST:event_atmBoxItemStateChanged
-
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+
         DefaultComboBoxModel atms = (DefaultComboBoxModel) atmBox1.getModel();
         int cont = 0;
         for (Cuenta i : ((Clientes) usuario.get(posi)).getCuenta()) {
@@ -1184,10 +1203,26 @@ int y = 0;
             }
             cont++;
         }
-        double y = Double.parseDouble( jSpinner1.getValue().toString());
-        ((Clientes) usuario.get(posi)).getCuenta().get(cont).setSaldo(((Clientes) usuario.get(posi)).getCuenta().get(cont).getSaldo() - y);
-        JOptionPane.showMessageDialog(this, "SU RETIRO DE EFECTUO CORRECTAMENTE");
-        b.escribirArchivo();
+        double y = Double.parseDouble(jSpinner1.getValue().toString());
+        if (y < ((Clientes) usuario.get(posi)).getCuenta().get(cont).getSaldo()) {
+
+            ((Clientes) usuario.get(posi)).getCuenta().get(cont).setSaldo(((Clientes) usuario.get(posi)).getCuenta().get(cont).getSaldo() - y);
+            String codigo = "TRA" + (1432 + r.nextInt(421)) + "SDD";
+            Date d = new Date();
+            ((Clientes) usuario.get(posi)).getTransacciones().add(new Transacciones("Retiro$$$ " + y, ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta(), codigo, d));
+            t.add(new Transacciones("Retiro$$$ " + y, ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta(), codigo, d));
+            String recibo = "-----------RECIBO-----------\nBanco LaBowlee :3\n Usuario: " + usuario.get(posi).getUsuario() + "\nNumero de cuenta: " + ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta() + "\nTotal Retirado: " + y;
+            JOptionPane.showMessageDialog(this, recibo);
+            b.escribirArchivo();
+
+            logs.add(new Logs(usuario.get(posi).getUsuario(), ": Retirno $$$: " + y + "de su cuenta:", d));
+            try {
+                ar.Escribir();
+            } catch (Exception ex) {
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "SU SALDO ES INSUFICIENTE");
+        }
         PrincipalCliente.setVisible(false);
 
         this.pack();
@@ -1206,8 +1241,20 @@ int y = 0;
         }
         double y = Double.parseDouble(jSpinner2.getValue().toString());
         ((Clientes) usuario.get(posi)).getCuenta().get(cont).setSaldo(((Clientes) usuario.get(posi)).getCuenta().get(cont).getSaldo() + y);
-        JOptionPane.showMessageDialog(this, "SU DEPOSITO DE EFECTUO CORRECTAMENTE");
+        String recibo = "-----------RECIBO-----------\nBanco LaBowlee :3\n Usuario: " + usuario.get(posi).getUsuario() + "\nNumero de cuenta: " + ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta() + "\nTotal de Deposito: " + y;
+        JOptionPane.showMessageDialog(this, recibo);
+        Date d = new Date();
+        String codigo = "TRA" + (1432 + r.nextInt(421)) + "SDD";
+
+        ((Clientes) usuario.get(posi)).getTransacciones().add(new Transacciones("Deposito " + y, ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta(), codigo, d));
+        t.add(new Transacciones("Deposito " + y, ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta(), codigo, d));
+        logs.add(new Logs(usuario.get(posi).getUsuario(), ": Deposito $$$: " + y + "de su cuenta:", d));
         b.escribirArchivo();
+        try {
+            ART.Escribir();
+            ar.Escribir();
+        } catch (Exception ex) {
+        }
         PrincipalCliente.setVisible(false);
 
         this.pack();
@@ -1217,7 +1264,6 @@ int y = 0;
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         int aux1 = 0;
-
         DefaultComboBoxModel atms = (DefaultComboBoxModel) atmBox3.getModel();
         int cont = 0;
         for (Cuenta i : ((Clientes) usuario.get(aux22)).getCuenta()) {
@@ -1226,10 +1272,22 @@ int y = 0;
             }
             cont++;
         }
-        double y = Double.parseDouble( jSpinner3.getValue().toString());
+        double y = Double.parseDouble(jSpinner3.getValue().toString());
         ((Clientes) usuario.get(aux22)).getCuenta().get(cont).setSaldo(((Clientes) usuario.get(posi)).getCuenta().get(cont).getSaldo() + y);
-        JOptionPane.showMessageDialog(this, "SU DEPOSITO DE EFECTUO CORRECTAMENTE");
+        ((Clientes) usuario.get(posi)).getCuenta().get(cont).setSaldo(((Clientes) usuario.get(posi)).getCuenta().get(cont).getSaldo() - y);
+        String recibo = "-----------RECIBO-----------\nBanco LaBowlee :3\n Usuario: " + usuario.get(posi).getUsuario() + "\nNumero de cuenta: " + ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta() + "\nTotal de Deposito: " + y;
+        JOptionPane.showMessageDialog(this, recibo);
+        Date d = new Date();
+        logs.add(new Logs(usuario.get(posi).getUsuario(), ": Hizo un depocito de $$$: " + y + " a la cuenta de: " + usuario.get(aux22).getUsuario() + ":", d));
+        String codigo = "TRA" + (1432 + r.nextInt(421)) + "SDD";
+        ((Clientes) usuario.get(posi)).getTransacciones().add(new Transacciones("Deposito " + y + " En la cuenta de: " + usuario.get(aux22).getUsuario(), ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta(), codigo, d));
+        t.add(new Transacciones("Deposito " + y + " En la cuenta de: " + usuario.get(aux22).getUsuario(), ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta(), codigo, d));
         b.escribirArchivo();
+        try {
+            ART.Escribir();
+            ar.Escribir();
+        } catch (Exception ex) {
+        }
         PrincipalCliente.setVisible(false);
         this.pack();
         this.setLocationRelativeTo(this);
@@ -1276,6 +1334,33 @@ int y = 0;
         this.setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
 
+    private void cu_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cu_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cu_idActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Cuenta c = new Cuenta(cu_tarjeta.getText(), Double.parseDouble(cu_saldo.getValue().toString()), cu_id.getText());
+        ((Clientes) usuario.get(posi)).getCuenta().add(c);
+        JOptionPane.showMessageDialog(this, "Se agrego una nueva cuenta exitosamente");
+        b.escribirArchivo();
+        String codigo = "CUE" + (1 + r.nextInt(132000)) + "SDD";
+        cu_id.setText(codigo);
+        cu_tarjeta.setText("");
+        cu_saldo.setValue(0);
+        Date d = new Date();
+        logs.add(new Logs(usuario.get(posi).getUsuario(), ": creo una nueva cuenta " + ":", d));
+        try {
+            ART.Escribir();
+
+            ar.Escribir();
+        } catch (Exception ex) {
+        }
+        PrincipalCliente.setVisible(false);
+        this.pack();
+        this.setLocationRelativeTo(this);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     private void jTabbedPane3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane3StateChanged
         DefaultComboBoxModel atms = (DefaultComboBoxModel) atmBox.getModel();
         for (Usuario u : usuario) {
@@ -1289,15 +1374,116 @@ int y = 0;
         atmBox.setModel(atms);
     }//GEN-LAST:event_jTabbedPane3StateChanged
 
-    private void cu_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cu_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cu_idActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        DefaultComboBoxModel atms = (DefaultComboBoxModel) atmBox.getModel();
+        int cont = 0;
+        System.out.println("llega");
+        for (ATM i : ((Usuario_mantenimiento) usuario.get(posi)).getAtms()) {
+            if (((String) atms.getSelectedItem()).equals(i.getId())) {
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-     Cuenta c=new Cuenta(cu_tarjeta.getText(), Double.parseDouble(cu_saldo.getValue().toString()), cu_id.getText());
-     ((Clientes)usuario.get(posi)).getCuenta().add(c);
-     
-    }//GEN-LAST:event_jButton5ActionPerformed
+                break;
+            }
+            cont++;
+        }
+        System.out.println(cant_100.getValue() + "dsa");
+        int cant100 = 100 * Integer.parseInt(cant_100.getValue().toString());
+        int cant500 = 500 * Integer.parseInt(cant_500.getValue().toString());
+        int suma = cant100 + cant500;
+        System.out.println(cant100 + " " + cant500);
+        ((Usuario_mantenimiento) usuario.get(posi)).getAtms().get(cont).setDinero(suma);
+        Date d = new Date();
+        logs.add(new Logs(usuario.get(posi).getUsuario(), ": Ingreso $$: " + suma + " al ATM", d));
+        try {
+            ar.Escribir();
+        } catch (Exception ex) {
+        }
+
+        String usu = JOptionPane.showInputDialog("Ingrese su Usuario:");
+        String pass = JOptionPane.showInputDialog("Ingrese su Password:");
+        for (Usuario i : usuario) {
+            if (i.getUsuario().equals(usu) && i.getContra().equals(pass)) {
+                this.pack();
+                this.setLocationRelativeTo(this);
+                this.setVisible(true);
+                PrincipalMantenimiento.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void atmBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_atmBoxItemStateChanged
+        boolean aux1 = true;
+        if (evt.getStateChange() == 2) {
+            DefaultComboBoxModel atms = (DefaultComboBoxModel) atmBox.getModel();
+            for (ATM i : ((Usuario_mantenimiento) usuario.get(posi)).getAtms()) {
+                if (((String) atms.getSelectedItem()).equals(i.getId())) {
+                    cant_100.setEnabled(true);
+                    cant_500.setEnabled(true);
+                    aux1 = false;
+                }
+            }
+            if (aux1) {
+                JOptionPane.showMessageDialog(this, "Usted no esta asignado a ese ATM");
+                Date d = new Date();
+                logs.add(new Logs(usuario.get(posi).getUsuario(), ": Fallo! este usuario no tiene asignado ese ATM:", d));
+                try {
+                    ar.Escribir();
+                } catch (Exception ex) {
+                }
+            }
+        }
+    }//GEN-LAST:event_atmBoxItemStateChanged
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        int aux = 0, aux2 = 0;
+        for (Usuario i : usuario) {
+            if (i instanceof Usuario_mantenimiento) {
+                if (atm_usu == aux2) {
+                    break;
+                }
+                aux2++;
+            }
+            aux++;
+        }
+        ((Usuario_mantenimiento) usuario.get(aux)).getAtms().add(new ATM(atm_ubicacion.getText(), atm_id.getText(), atm_tiempo.getText(), 2020, Double.parseDouble(atm_Saldo.getText())));
+        b.escribirArchivo();
+        JOptionPane.showMessageDialog(this, "Se creo el ATM correctamente");
+        String codigo = "AMT" + (21321 + r.nextInt(10000)) + "DAsdaSF";
+        atm_id.setText(codigo);
+        Date d = new Date();
+        logs.add(new Logs(usuario.get(posi).getUsuario(), ": Se creo un nuevo ATM :", d));
+        try {
+            ar.Escribir();
+        } catch (Exception ex) {
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        int u = tablaMantenimiento.getSelectedRow();
+        if (u >= 0) {
+            atm_usu = u;
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void atmBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_atmBox4ItemStateChanged
+        try {
+
+            if (evt.getStateChange() == 2) {
+                DefaultComboBoxModel atms = (DefaultComboBoxModel) atmBox1.getModel();
+                int cont = 0;
+                for (Cuenta i : ((Clientes) usuario.get(posi)).getCuenta()) {
+                    if (i.getId().equals(((String) atms.getSelectedItem()))) {
+                        break;
+                    }
+                    cont++;
+                }
+                String aux1 = "Usuario: " + usuario.get(posi).getUsuario() + "\nNumero Cuenta:" + ((Clientes) usuario.get(posi)).getCuenta().get(cont).getNum_cuenta() + "\nSaldo disponible: " + ((Clientes) usuario.get(posi)).getCuenta().get(cont).getSaldo();
+                jTextArea1.setText("");
+                jTextArea1.append(aux1);
+            }
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_atmBox4ItemStateChanged
 
     public void llenarMantenimiento() {
         DefaultTableModel t = (DefaultTableModel) tablaMantenimiento.getModel();
@@ -1335,6 +1521,7 @@ int y = 0;
         }
         atmBox1.setModel(atms);
         atmBox2.setModel(atms);
+        atmBox4.setModel(atms);
     }
 
     public static void main(String args[]) {
@@ -1379,6 +1566,7 @@ int y = 0;
     private javax.swing.JComboBox<String> atmBox1;
     private javax.swing.JComboBox<String> atmBox2;
     private javax.swing.JComboBox<String> atmBox3;
+    private javax.swing.JComboBox<String> atmBox4;
     private javax.swing.JTextField atm_Saldo;
     private javax.swing.JTextField atm_anio;
     private javax.swing.JTextField atm_id;
@@ -1453,6 +1641,8 @@ int y = 0;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1474,16 +1664,24 @@ int y = 0;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTable tablaCuentas;
     private javax.swing.JTable tablaMantenimiento;
     // End of variables declaration//GEN-END:variables
     ArrayList<Usuario> usuario = new ArrayList();
     int posi, atm_usu;
     Binarios b = new Binarios("./Guardar.bin");
+    ArrayList<Logs> logs = new ArrayList();
+    ArchivosTexto ar = new ArchivosTexto("./Logs.txt", logs);
+    ArrayList<Transacciones> t = new ArrayList();
+    ArchivoTextoTrans ART = new ArchivoTextoTrans("./Transacciones.txt", t);
 }
