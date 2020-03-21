@@ -2,3 +2,4 @@ TRA1785SDD,Retiro$$$ 330.0,    -    -    -    ,Fri Mar 20 20:40:30 CST 2020;
 TRA1766SDD,Deposito 320.0,1111-3221-1111-1111,Fri Mar 20 20:40:39 CST 2020;
 TRA1667SDD,Deposito 330.0,1111-3221-1111-1111,Fri Mar 20 20:41:15 CST 2020;
 TRA1594SDD,Deposito 330.0 En la cuenta de: marce,    -    -    -    ,Fri Mar 20 20:41:39 CST 2020;
+TRA1658SDD,Deposito 320.0 En la cuenta de: DiegaA,3333-3333-3333-3333,Fri Mar 20 21:52:02 CST 2020;
